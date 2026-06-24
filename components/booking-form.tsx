@@ -8,11 +8,42 @@ const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello,%20I%20need%2
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // In a real app, send data to an API/CRM here
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+    
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      appliance: formData.get("appliance"),
+      zip: formData.get("zip"),
+      issue: formData.get("issue"),
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send request")
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError("An error occurred while sending your request. Please call us instead.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -69,18 +100,18 @@ export function BookingForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-slate-700">Full Name</label>
-                  <input required type="text" id="name" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
+                  <input required type="text" id="name" name="name" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="block text-sm font-medium text-slate-700">Phone Number</label>
-                  <input required type="tel" id="phone" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="(555) 123-4567" />
+                  <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="(555) 123-4567" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="appliance" className="block text-sm font-medium text-slate-700">Appliance Type</label>
-                  <select required id="appliance" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
+                  <select required id="appliance" name="appliance" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white">
                     <option value="">Select Appliance...</option>
                     <option value="refrigerator">Refrigerator / Freezer</option>
                     <option value="washer">Washing Machine</option>
@@ -93,18 +124,28 @@ export function BookingForm() {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="zip" className="block text-sm font-medium text-slate-700">Zip Code</label>
-                  <input required type="text" id="zip" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="e.g. 64801" />
+                  <input required type="text" id="zip" name="zip" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="e.g. 64801" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="issue" className="block text-sm font-medium text-slate-700">Briefly describe the issue</label>
-                <textarea id="issue" rows={3} className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none" placeholder="E.g. The fridge is not cooling..."></textarea>
+                <textarea id="issue" name="issue" rows={3} className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none" placeholder="E.g. The fridge is not cooling..."></textarea>
               </div>
 
-              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                Send Request
+              {error && (
+                <div className="p-4 bg-red-50 text-red-700 border border-red-200 rounded-lg text-sm text-center">
+                  {error}
+                </div>
+              )}
+
+              <button disabled={loading} type="submit" className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                {loading ? (
+                  <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                )}
+                {loading ? "Sending Request..." : "Send Request"}
               </button>
               </form>
             </>

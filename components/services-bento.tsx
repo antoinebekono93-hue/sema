@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const services = [
   {
@@ -7,18 +8,21 @@ const services = [
       "Stop food spoilage with our rapid cooling diagnostics and Master Certified compressor repairs.",
     image: "/fridge.jpg",
     className: "lg:col-span-2",
+    href: "/services/refrigerator",
   },
   {
     title: "Washer Repair",
     description: "Restore your laundry routine with expert fixes for drainage issues and spin cycle failures.",
     image: "/washer.jpg",
     className: "",
+    href: "/services/washer",
   },
   {
     title: "Dryer Repair",
     description: "Ensure home safety and efficiency with precision heating element and sensor replacements.",
     image: "/dryer.jpg",
     className: "",
+    href: "/services/dryer",
   },
   {
     title: "Dishwasher Repair",
@@ -26,24 +30,28 @@ const services = [
       "From stubborn leaks to poor cleaning performance, we restore your dishwasher's sparkling results.",
     image: "/dishwasher.jpg",
     className: "",
+    href: "/services/dishwasher",
   },
   {
     title: "Oven & Range Repair",
     description: "Back to cooking with precise temperature calibration and heating element fixes.",
     image: "/oven.jpg",
     className: "",
+    href: "/services/oven",
   },
   {
     title: "Microwave Repair",
     description: "Fast, reliable fixes for touchpad errors and magnetron failures.",
     image: "/microwave.jpg",
     className: "",
+    href: "/services/microwave",
   },
   {
     title: "Freezer Repair",
     description: "Protect your frozen investments with emergency diagnostics for chest and upright freezers.",
     image: "/freezer.jpg",
     className: "lg:col-span-2",
+    href: "/services/freezer",
   },
 ]
 
@@ -59,7 +67,8 @@ export function ServicesBento() {
 
       <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <div
+          <Link
+            href={service.href}
             key={service.title}
             className={`group relative h-64 cursor-pointer overflow-hidden rounded-2xl lg:h-72 ${service.className}`}
           >
@@ -86,7 +95,7 @@ export function ServicesBento() {
                 {service.description}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
