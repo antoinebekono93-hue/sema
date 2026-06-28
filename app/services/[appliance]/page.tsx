@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
     areaServed: { "@type": "City", name: "Joplin" },
   }
 
-  const WHATSAPP_NUMBER = "+237676065061"
+  const WHATSAPP_NUMBER = "+15732616980"
   const WHATSAPP_MESSAGE = encodeURIComponent(`Hi, I need help with my ${data.name}. It's urgent.`)
   const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
@@ -718,8 +718,8 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   
                   <div className="flex items-center gap-2 text-slate-400">
                     <span>Or call us directly:</span>
-                    <a href="tel:+237676065061" className="text-white font-bold hover:text-blue-400 transition-colors">
-                      +237 6 76 06 50 61
+                    <a href="tel:+15732616980" className="text-white font-bold hover:text-blue-400 transition-colors">
+                      +1 573 261 6980
                     </a>
                   </div>
                 </div>

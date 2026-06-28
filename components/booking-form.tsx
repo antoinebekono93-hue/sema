@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Send, CheckCircle, MessageCircle } from "lucide-react"
 
-const WHATSAPP_NUMBER = "237676065061"
+const WHATSAPP_NUMBER = "15732616980"
 const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello,%20I%20need%20appliance%20repair%20services.`
 
 export function BookingForm() {

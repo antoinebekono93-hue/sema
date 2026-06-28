@@ -74,7 +74,7 @@ export function Faq() {
               <h3 className="font-bold text-slate-900 text-xl">Still need help?</h3>
               <p className="mt-2 text-slate-600 mb-8">Our master technicians are ready to answer your specific questions instantly.</p>
               <a 
-                href="https://wa.me/237676065061?text=Hello,%20I%20have%20a%20question%20about%20an%20appliance%20repair." 
+                href="https://wa.me/15732616980?text=Hello,%20I%20have%20a%20question%20about%20an%20appliance%20repair." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-[#25D366] px-4 py-4 text-base font-bold text-white transition-all hover:bg-[#20b858] hover:shadow-lg hover:-translate-y-1"
