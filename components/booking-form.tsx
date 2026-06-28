@@ -54,7 +54,7 @@ export function BookingForm() {
             Request Service
           </h2>
           <p className="text-lg text-slate-600">
-            For the fastest response, message us on WhatsApp. Or, fill out the form below.
+            Fill out the form below to request a service appointment.
           </p>
         </div>
 
@@ -75,26 +75,6 @@ export function BookingForm() {
             </div>
           ) : (
             <>
-              {/* Primary WhatsApp CTA */}
-              <div className="mb-8">
-                <a 
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20b858] text-white font-bold py-5 rounded-xl shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl text-lg group"
-                >
-                  <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" />
-                  Book Instantly via WhatsApp
-                </a>
-                <p className="text-center text-sm text-slate-500 mt-3">Average response time: &lt; 5 minutes</p>
-              </div>
-
-              {/* Separator */}
-              <div className="relative flex pb-8 pt-2 items-center">
-                <div className="flex-grow border-t border-slate-200"></div>
-                <span className="flex-shrink-0 mx-4 text-slate-400 font-semibold text-xs tracking-widest uppercase">Or use our web form</span>
-                <div className="flex-grow border-t border-slate-200"></div>
-              </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
