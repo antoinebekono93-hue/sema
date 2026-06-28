@@ -45,7 +45,7 @@ export function StickyCta() {
       >
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
         <MessageCircle className="h-6 w-6 animate-pulse" aria-hidden="true" />
-        <span className="relative z-10 tracking-wide uppercase">WhatsApp Us</span>
+        <span className="relative z-10 tracking-wide uppercase">Book Now</span>
       </a>
     </div>
   )
