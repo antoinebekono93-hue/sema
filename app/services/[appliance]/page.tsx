@@ -70,9 +70,9 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
     areaServed: { "@type": "City", name: "Joplin" },
   }
 
-  const WHATSAPP_NUMBER = "+15732616980"
-  const WHATSAPP_MESSAGE = encodeURIComponent(`Hi, I need help with my ${data.name}. It's urgent.`)
-  const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
+  const SMS_NUMBER = "+15732616980"
+  const SMS_MESSAGE = encodeURIComponent(`Hi, I need help with my ${data.name}. It's urgent.`)
+  const SMS_LINK = `sms:${SMS_NUMBER}?body=${SMS_MESSAGE}`
 
   return (
     <div className="min-h-screen bg-white">
@@ -138,7 +138,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "h-14 px-8 text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl shadow-lg shadow-blue-600/30 transition-all hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5")}>
+                  <Link href={SMS_LINK} className={cn(buttonVariants({ size: "lg" }), "h-14 px-8 text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl shadow-lg shadow-blue-600/30 transition-all hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5")}>
                     <Phone className="mr-2 h-5 w-5" /> 
                     Book {data.name} Repair
                   </Link>
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
             </div>
             
             {/* Desktop CTA */}
-            <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-emerald-500 text-slate-950 hover:bg-emerald-400 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] rounded-xl h-14 px-8")}>
+            <Link href={SMS_LINK} className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-blue-600 text-white hover:bg-blue-500 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)] rounded-xl h-14 px-8")}>
               <Phone className="mr-2 h-5 w-5" /> 
               Call Now for {data.name} Repair
             </Link>
@@ -267,7 +267,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
               </span>
               Dispatching now in Joplin Area
             </p>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-emerald-500 active:bg-emerald-600 text-slate-950 font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform transform active:scale-[0.98]">
+            <a href={SMS_LINK} className="w-full flex items-center justify-center bg-blue-600 active:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-transform transform active:scale-[0.98]">
               <Phone className="mr-2 h-5 w-5" />
               Call (417) XXX-XXXX
             </a>
@@ -293,9 +293,9 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
               {data.symptoms.map((symptom, i) => {
                 const Icon = iconMap[symptom.icon] || AlertCircle
                 
-                // Create a pre-filled WhatsApp message for this specific symptom
+                // Create a pre-filled SMS message for this specific symptom
                 const symptomMessage = encodeURIComponent(`Hi, my ${data.name} is experiencing this issue: ${symptom.text}. Can you help?`);
-                const symptomHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${symptomMessage}`;
+                const symptomHref = `sms:${SMS_NUMBER}?body=${symptomMessage}`;
 
                 return (
                   <Link
@@ -386,7 +386,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                       </li>
                     </ul>
                     
-                    <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "w-full h-14 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all rounded-xl flex items-center justify-center")}>
+                    <Link href={SMS_LINK} className={cn(buttonVariants({ size: "lg" }), "w-full h-14 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all rounded-xl flex items-center justify-center")}>
                       Schedule Repair Now
                     </Link>
                   </div>
@@ -456,7 +456,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">Book Your Time</h3>
                   <p className="text-slate-400 leading-relaxed text-lg">
-                    Call or message us on WhatsApp 24/7. We&apos;ll schedule a convenient window that works for you.
+                    Call or text us 24/7. We&apos;ll schedule a convenient window that works for you.
                   </p>
                 </div>
 
@@ -486,7 +486,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
             </div>
             
             <div className="mt-16 text-center flex justify-center">
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "h-14 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg shadow-[0_0_20px_rgba(37,99,235,0.4)] rounded-xl px-10 transition-all hover:-translate-y-1 flex items-center justify-center")}>
+              <Link href={SMS_LINK} className={cn(buttonVariants({ size: "lg" }), "h-14 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg shadow-[0_0_20px_rgba(37,99,235,0.4)] rounded-xl px-10 transition-all hover:-translate-y-1 flex items-center justify-center")}>
                 Schedule Service Now
               </Link>
             </div>
@@ -532,7 +532,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
           
           <div className="text-center mt-10">
              <p className="text-sm font-semibold text-blue-700">
-               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <Link href={WHATSAPP_LINK} target="_blank" className="font-semibold text-blue-600 hover:underline">Call to confirm →</Link></span>
+               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <Link href={SMS_LINK} className="font-semibold text-blue-600 hover:underline">Call to confirm →</Link></span>
              </p>
           </div>
         </section>
@@ -630,13 +630,11 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   <h3 className="font-bold text-slate-900 text-xl">Still need help?</h3>
                   <p className="mt-2 text-slate-600 mb-8">Our master technicians are ready to answer your specific {data.name.toLowerCase()} questions instantly.</p>
                   <Link 
-                    href={WHATSAPP_LINK} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-[#25D366] px-4 py-4 text-base font-bold text-white transition-all hover:bg-[#20b858] hover:shadow-lg hover:-translate-y-1"
+                    href={SMS_LINK} 
+                    className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-blue-600 px-4 py-4 text-base font-bold text-white transition-all hover:bg-blue-500 hover:shadow-lg hover:-translate-y-1"
                   >
                     <MessageCircle className="h-6 w-6" />
-                    Chat on WhatsApp
+                    Chat with us
                   </Link>
                 </div>
               </div>
@@ -704,15 +702,13 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                 
                 <div className="flex flex-col items-center justify-center gap-6">
                   <Link 
-                    href={WHATSAPP_LINK} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                    href={SMS_LINK} 
                     className="group relative inline-flex items-center justify-center h-16 px-10 text-xl font-bold text-white bg-blue-600 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(37,99,235,0.4)]"
                   >
                     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <span className="relative flex items-center gap-3">
                       <MessageCircle className="h-6 w-6" />
-                      Get a Free Quote via WhatsApp
+                      Get a Free Quote
                     </span>
                   </Link>
                   
