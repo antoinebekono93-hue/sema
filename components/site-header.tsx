@@ -6,8 +6,8 @@ import Link from "next/link"
 import { Phone, Menu, X, MessageCircle, ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
 
-const PHONE = "+1 573 261 6980"
-const SMS_LINK = "sms:15732616980?body=Hello,%20I%20have%20an%20appliance%20repair%20emergency."
+const PHONE = "+1 816 336 0259"
+const SMS_LINK = "sms:18163360259?body=Hello,%20I%20have%20an%20appliance%20repair%20emergency."
 
 const serviceLinks = [
   { label: "Refrigerator Repair", href: "/services/refrigerator" },
@@ -110,7 +110,7 @@ export function SiteHeader() {
         {/* Desktop CTAs */}
         <div className="hidden lg:flex items-center gap-4 z-50">
           <a
-            href="tel:+15732616980"
+            href="tel:+18163360259"
             className="text-[15px] font-bold text-slate-800 hover:text-blue-600 transition-colors flex items-center gap-2"
           >
             <Phone className="h-4 w-4" />
@@ -183,7 +183,7 @@ export function SiteHeader() {
             Chat With Us
           </a>
           <a
-            href="tel:+15732616980"
+            href="tel:+18163360259"
             className="flex items-center justify-center gap-2 rounded-xl bg-white border border-slate-300 px-5 py-4 text-lg font-bold text-slate-700 transition-all hover:bg-slate-50 active:scale-95"
           >
             <Phone className="h-5 w-5" />

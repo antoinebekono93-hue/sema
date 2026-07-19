@@ -13,7 +13,7 @@ export function ServiceAreaMap() {
             Proudly Serving The Four States Area
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-            From Joplin to Webb City, Carthage to Neosho and Carl Junction — we bring expert appliance repair right to your door anywhere in Southwest Missouri.
+            From Rolla to St. James, Cuba to Salem and Waynesville — we bring expert appliance repair right to your door anywhere in the area.
           </p>
         </div>
 
@@ -22,7 +22,7 @@ export function ServiceAreaMap() {
           <div className="lg:col-span-2">
             <iframe
               title="Four States Appliance Repair Service Area"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103072.38685944386!2d-94.57834815!3d37.08422945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c8630e76742cd3%3A0x6d76dce403ab1225!2sJoplin%2C%20MO%2C%20USA!5e0!3m2!1sen!2sfr!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100938.87786445512!2d-91.860618!3d37.948544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87dce12338ff9eb9%3A0xc660d1ed16f2e861!2sRolla%2C%20MO%2065401%2C%20USA!5e0!3m2!1sen!2sfr!4v1"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -51,7 +51,7 @@ export function ServiceAreaMap() {
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cta" aria-hidden="true" />
                   <div>
                     <p className="text-sm font-medium text-foreground">Address</p>
-                    <p className="text-sm text-muted-foreground">[Physical Address], Joplin, MO 64801</p>
+                    <p className="text-sm text-muted-foreground">1301 Forum Dr, Rolla, MO 65401</p>
                   </div>
                 </div>
 

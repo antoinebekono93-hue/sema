@@ -3,7 +3,7 @@ import { Wrench, Phone, MapPin } from "lucide-react"
 const PHONE = "+1 (417) XXX-XXXX"
 const PHONE_HREF = "tel:+1417XXXXXXX"
 
-const areasMo = ["Joplin", "Webb City", "Carthage", "Neosho", "Carl Junction", "Carterville", "Oronogo", "Seneca"]
+const areasMo = ["Rolla", "St. James", "Cuba", "Salem", "Waynesville", "St. Robert", "Dixon", "Newburg"]
 const areasKsOk = ["Galena", "Baxter Springs", "Columbus", "Pittsburg", "Frontenac", "Girard", "Riverton", "Quapaw"]
 
 export function SiteFooter() {
@@ -27,7 +27,7 @@ export function SiteFooter() {
             </a>
             <p className="mt-4 flex items-start gap-2 text-sm text-navy-foreground/70">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-              [Physical Address], Joplin, MO 64801
+              1301 Forum Dr, Rolla, MO 65401
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-navy-foreground/10 pt-6 text-center text-sm text-navy-foreground/60">
-          &copy; {new Date().getFullYear()} Four States Appliance Repair. Locally owned &amp; operated in Joplin, MO.
+          &copy; {new Date().getFullYear()} Four States Appliance Repair. Locally owned &amp; operated in Rolla, MO.
         </div>
       </div>
     </footer>

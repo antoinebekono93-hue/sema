@@ -74,7 +74,7 @@ export function Faq() {
               <h3 className="font-bold text-slate-900 text-xl">Still need help?</h3>
               <p className="mt-2 text-slate-600 mb-8">Our master technicians are ready to answer your specific questions instantly.</p>
               <a 
-                href="sms:15732616980?body=Hello,%20I%20have%20a%20question%20about%20an%20appliance%20repair." 
+                href="sms:18163360259?body=Hello,%20I%20have%20a%20question%20about%20an%20appliance%20repair." 
                 className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-blue-600 px-4 py-4 text-base font-bold text-white transition-all hover:bg-blue-500 hover:shadow-lg hover:-translate-y-1"
               >
                 <MessageCircle className="h-6 w-6" />
