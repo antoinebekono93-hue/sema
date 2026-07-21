@@ -248,10 +248,10 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
             </div>
             
             {/* Desktop CTA */}
-            <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-emerald-500 text-white hover:bg-emerald-400 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] rounded-xl h-14 px-8")}>
+            <a href="tel:+18163360259" className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-emerald-500 text-white hover:bg-emerald-400 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] rounded-xl h-14 px-8")}>
               <Phone className="mr-2 h-5 w-5" /> 
               Call Now for {data.name} Repair
-            </Link>
+            </a>
           </div>
         </section>
 
@@ -267,9 +267,9 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
               </span>
               Dispatching now in Joplin Area
             </p>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-emerald-500 active:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform transform active:scale-[0.98]">
+            <a href="tel:+18163360259" className="w-full flex items-center justify-center bg-emerald-500 active:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform transform active:scale-[0.98]">
               <Phone className="mr-2 h-5 w-5" />
-              Call (417) XXX-XXXX
+              Call +1 816 336 0259
             </a>
           </div>
         </div>
@@ -532,7 +532,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
           
           <div className="text-center mt-10">
              <p className="text-sm font-semibold text-blue-700">
-               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <Link href={WHATSAPP_LINK} target="_blank" className="font-semibold text-[#25D366] hover:underline">Call to confirm →</Link></span>
+               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <a href="tel:+18163360259" className="font-semibold text-[#25D366] hover:underline">Call to confirm →</a></span>
              </p>
           </div>
         </section>
@@ -718,8 +718,8 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   
                   <div className="flex items-center gap-2 text-slate-400">
                     <span>Or call us directly:</span>
-                    <a href="tel:+15732616980" className="text-white font-bold hover:text-blue-400 transition-colors">
-                      +1 573 261 6980
+                    <a href="tel:+18163360259" className="text-white font-bold hover:text-blue-400 transition-colors">
+                      +1 816 336 0259
                     </a>
                   </div>
                 </div>

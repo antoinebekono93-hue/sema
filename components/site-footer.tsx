@@ -1,7 +1,7 @@
 import { Wrench, Phone, MapPin } from "lucide-react"
 
-const PHONE = "+1 (417) XXX-XXXX"
-const PHONE_HREF = "tel:+1417XXXXXXX"
+const PHONE = "+1 816 336 0259"
+const PHONE_HREF = "tel:+18163360259"
 
 const areasMo = ["Rolla", "St. James", "Cuba", "Salem", "Waynesville", "St. Robert", "Dixon", "Newburg"]
 const areasKsOk = ["Galena", "Baxter Springs", "Columbus", "Pittsburg", "Frontenac", "Girard", "Riverton", "Quapaw"]
