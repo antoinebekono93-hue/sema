@@ -7,7 +7,7 @@ import { Phone, Menu, X, MessageCircle, ChevronDown } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 const PHONE = "+1 816 336 0259"
-const WHATSAPP_LINK = "https://wa.me/18163360259?text=Hello,%20I%20have%20an%20appliance%20repair%20emergency."
+const SMS_LINK = "sms:18163360259?body=Hello,%20I%20have%20an%20appliance%20repair%20emergency."
 
 const serviceLinks = [
   { label: "Refrigerator Repair", href: "/services/refrigerator" },
@@ -117,7 +117,7 @@ export function SiteHeader() {
             <span className="hidden xl:inline">{PHONE}</span>
           </a>
           <a
-            href={WHATSAPP_LINK}
+            href={SMS_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-95"
@@ -175,14 +175,14 @@ export function SiteHeader() {
         {/* Mobile Bottom CTAs */}
         <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col gap-4 shrink-0">
           <a
-            href={WHATSAPP_LINK}
+            href={SMS_LINK}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-4 text-lg font-bold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:bg-[#20b858] hover:shadow-xl hover:-translate-y-1"
+            className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-4 text-lg font-bold text-white shadow-lg shadow-blue-600/30 transition-all hover:bg-blue-500 hover:shadow-xl hover:-translate-y-1"
           >
             <MessageCircle className="h-5 w-5" />
-            Book Repair via WhatsApp
+            Chat With Us
           </a>
           <a
             href="tel:+18163360259"

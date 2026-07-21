@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { Send, CheckCircle, MessageCircle } from "lucide-react"
 
-const WHATSAPP_NUMBER = "18163360259"
-const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello,%20I%20need%20appliance%20repair%20services.`
+const SMS_NUMBER = "18163360259"
+const SMS_HREF = `sms:${SMS_NUMBER}?body=Hello,%20I%20need%20appliance%20repair%20services.`
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false)
