@@ -1,15 +1,21 @@
-import { sql } from '@vercel/postgres';
+import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
+
+function getDb() {
+  const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+  if (!url) throw new Error('DATABASE_URL is not set');
+  return neon(url);
+}
 
 // GET all reviews
 export async function GET() {
   try {
-    // Attempt to fetch reviews. If table doesn't exist yet, this will throw an error that we catch.
-    const { rows } = await sql`SELECT * FROM reviews ORDER BY created_at DESC;`;
+    const sql = getDb();
+    const rows = await sql`SELECT * FROM reviews ORDER BY created_at DESC;`;
     return NextResponse.json({ reviews: rows }, { status: 200 });
   } catch (error: any) {
-    // If the table doesn't exist (relation "reviews" does not exist)
-    if (error.message.includes('relation "reviews" does not exist')) {
+    if (error.message.includes('relation "reviews" does not exist') ||
+        error.message.includes('does not exist')) {
       return NextResponse.json({ reviews: [] }, { status: 200 });
     }
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -24,6 +30,8 @@ export async function POST(request: Request) {
     if (!name || !rating || !text) {
       return NextResponse.json({ error: 'Name, rating, and text are required' }, { status: 400 });
     }
+
+    const sql = getDb();
 
     // Automatically create the table if it doesn't exist
     await sql`
@@ -44,7 +52,7 @@ export async function POST(request: Request) {
       RETURNING *;
     `;
 
-    return NextResponse.json({ success: true, review: result.rows[0] }, { status: 201 });
+    return NextResponse.json({ success: true, review: result[0] }, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
