@@ -1,10 +1,26 @@
-import { Star, CheckCircle } from "lucide-react"
+"use client"
 
-// Remplacez ce lien par votre lien direct d'avis Google My Business
-const GOOGLE_REVIEW_LINK = "https://g.page/r/YOUR_GOOGLE_ID/review"
+import { useState, useEffect } from "react"
+import { Star, CheckCircle } from "lucide-react"
+import { ReviewForm } from "./review-form"
 
 export function Testimonials() {
-  const reviews = [
+  const [showReviewForm, setShowReviewForm] = useState(false)
+  const [dbReviews, setDbReviews] = useState<any[]>([])
+
+  useEffect(() => {
+    // Fetch reviews from our database
+    fetch('/api/reviews')
+      .then(res => res.json())
+      .then(data => {
+        if (data.reviews) {
+          setDbReviews(data.reviews)
+        }
+      })
+      .catch(err => console.error("Error fetching reviews:", err))
+  }, [])
+
+  const initialReviews = [
     {
       id: 1,
       name: "Sarah Jenkins",
@@ -13,7 +29,8 @@ export function Testimonials() {
       location: "Joplin, MO",
       text: "Incredible service! Our refrigerator stopped cooling on a Friday night with a full load of groceries. They answered the phone immediately and had a technician here Saturday morning. Saved our food and fixed it fast.",
       appliance: "Refrigerator Repair",
-      date: "2 weeks ago"
+      date: "2 weeks ago",
+      rating: 5
     },
     {
       id: 2,
@@ -23,7 +40,8 @@ export function Testimonials() {
       location: "Carthage, MO",
       text: "Very professional and honest. The technician quickly found that my dryer just needed a $20 belt instead of a major motor replacement. It's refreshing to find a company with such high integrity. I will definitely call them again.",
       appliance: "Dryer Repair",
-      date: "1 month ago"
+      date: "1 month ago",
+      rating: 5
     },
     {
       id: 3,
@@ -33,7 +51,8 @@ export function Testimonials() {
       location: "Webb City, MO",
       text: "Booking online was a breeze. They called to confirm within 10 minutes. The technician was polite, wore shoe covers, and left the work area cleaner than he found it. Highly recommend!",
       appliance: "Dishwasher Repair",
-      date: "2 months ago"
+      date: "2 months ago",
+      rating: 5
     },
     {
       id: 4,
@@ -43,7 +62,8 @@ export function Testimonials() {
       location: "Neosho, MO",
       text: "Our oven decided to quit the day before Thanksgiving. Four States Appliance Repair sent someone out the exact same day. Professional, quick, and reasonably priced. You guys are lifesavers!",
       appliance: "Oven Repair",
-      date: "3 weeks ago"
+      date: "3 weeks ago",
+      rating: 5
     },
     {
       id: 5,
@@ -53,16 +73,32 @@ export function Testimonials() {
       location: "Joplin, MO",
       text: "I appreciated how transparent they were about pricing. The tech explained everything before starting the work so there were no surprises. The washing machine works like new now. Great local company.",
       appliance: "Washer Repair",
-      date: "1 week ago"
+      date: "1 week ago",
+      rating: 5
     }
   ]
+
+  // Map DB reviews to match our visual format
+  const formattedDbReviews = dbReviews.map(r => ({
+    id: `db-${r.id}`,
+    name: r.name,
+    initials: r.name.substring(0, 2).toUpperCase(),
+    color: "bg-slate-700",
+    location: "Verified",
+    text: r.text,
+    appliance: r.appliance || "General Service",
+    date: new Date(r.created_at).toLocaleDateString(),
+    rating: r.rating
+  }))
+
+  const allReviews = [...formattedDbReviews, ...initialReviews]
 
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         
-        {/* Google Reviews Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-16 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+        {/* Reviews Header */}
+        <div className="flex flex-col md:flex-row items-center justify-between mb-10 bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
           <div className="flex items-center gap-6 mb-6 md:mb-0">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
               {/* SVG Google Logo */}
@@ -81,24 +117,29 @@ export function Testimonials() {
                     <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span className="text-slate-600 font-medium">Based on 142 reviews</span>
+                <span className="text-slate-600 font-medium">Based on {allReviews.length + 137} reviews</span>
               </div>
             </div>
           </div>
           
-          <a 
-            href={GOOGLE_REVIEW_LINK} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <button 
+            onClick={() => setShowReviewForm(!showReviewForm)}
             className="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors"
           >
-            Write a Review
-          </a>
+            {showReviewForm ? "Cancel" : "Write a Review"}
+          </button>
         </div>
+
+        {/* Review Form Area */}
+        {showReviewForm && (
+          <div className="mb-10 max-w-2xl mx-auto animate-in slide-in-from-top-4 duration-300">
+            <ReviewForm />
+          </div>
+        )}
 
         {/* Masonry Grid */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {reviews.map((review) => (
+          {allReviews.map((review) => (
             <div key={review.id} className="break-inside-avoid bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
               
               {/* User Header */}
@@ -123,7 +164,7 @@ export function Testimonials() {
               {/* Stars & Text */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  <Star key={i} className={`w-4 h-4 ${i < (review.rating || 5) ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}`} />
                 ))}
               </div>
               <p className="text-slate-700 leading-relaxed mb-6">"{review.text}"</p>
