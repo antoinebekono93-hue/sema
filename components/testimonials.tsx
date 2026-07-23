@@ -1,5 +1,8 @@
 import { Star, CheckCircle } from "lucide-react"
 
+// Remplacez ce lien par votre lien direct d'avis Google My Business
+const GOOGLE_REVIEW_LINK = "https://g.page/r/YOUR_GOOGLE_ID/review"
+
 export function Testimonials() {
   const reviews = [
     {
@@ -83,7 +86,12 @@ export function Testimonials() {
             </div>
           </div>
           
-          <a href="#" className="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors">
+          <a 
+            href={GOOGLE_REVIEW_LINK} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors"
+          >
             Write a Review
           </a>
         </div>
