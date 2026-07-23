@@ -31,13 +31,15 @@ export function ReviewForm() {
         body: JSON.stringify(data),
       })
 
+      const result = await response.json().catch(() => ({ error: `Server error (${response.status})` }))
+
       if (!response.ok) {
-        throw new Error("Failed to send request")
+        throw new Error(result.error || `Server error (${response.status})`)
       }
 
       setSubmitted(true)
-    } catch (err) {
-      setError("An error occurred while sending your review. Please try again.")
+    } catch (err: any) {
+      setError(err.message || "An error occurred while sending your review. Please try again.")
     } finally {
       setLoading(false)
     }
