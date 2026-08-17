@@ -3,7 +3,50 @@ import { Wrench, Phone, MapPin } from "lucide-react"
 const PHONE = "+1 816 336 0259"
 const PHONE_HREF = "tel:+18163360259"
 
-const areasMo = ["Rolla", "St. James", "Cuba", "Salem", "Waynesville", "St. Robert", "Dixon", "Newburg"]
+const areasMo = [
+  "Aurora",
+  "Avilla",
+  "Butterfield",
+  "Carl Junction",
+  "Carterville",
+  "Carthage",
+  "Cassville",
+  "Cuba",
+  "Diamond",
+  "Dixon",
+  "Exeter",
+  "Fairview",
+  "Freistatt",
+  "Granby",
+  "Jasper",
+  "Joplin",
+  "La Russell",
+  "Monett",
+  "Mount Vernon",
+  "Neck City",
+  "Neosho",
+  "Newburg",
+  "Newtonia",
+  "Oronogo",
+  "Pierce City",
+  "Purdy",
+  "Reeds",
+  "Rocky Comfort",
+  "Rolla",
+  "Saginaw",
+  "Salem",
+  "Sarcoxie",
+  "St. James",
+  "St. Robert",
+  "Stark City",
+  "Stella",
+  "Stotts City",
+  "Verona",
+  "Waynesville",
+  "Webb City",
+  "Wentworth",
+  "Wheaton",
+]
 const areasKsOk = ["Galena", "Baxter Springs", "Columbus", "Pittsburg", "Frontenac", "Girard", "Riverton", "Quapaw"]
 
 export function SiteFooter() {
@@ -35,7 +78,7 @@ export function SiteFooter() {
             <h3 className="text-sm font-semibold uppercase tracking-wide text-navy-foreground/60">
               Service Areas — Missouri
             </h3>
-            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-navy-foreground/80">
+            <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-sm text-navy-foreground/80">
               {areasMo.map((area) => (
                 <li key={area}>{area}</li>
               ))}
