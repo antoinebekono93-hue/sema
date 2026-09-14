@@ -21,7 +21,7 @@ export default async function Page() {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Four States Appliance Repair",
-    "telephone": "+18163360259",
+    "telephone": "+18163084795",
     "url": "https://fourstatesrepair-placeholder.com",
     "address": {
       "@type": "PostalAddress",

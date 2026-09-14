@@ -1,7 +1,7 @@
 import { Phone, CalendarCheck, Star } from "lucide-react"
+const PHONE = "+1 (816) 308-4795"
 
-const PHONE = "+1 816 336 0259"
-const PHONE_HREF = "tel:+18163360259"
+const PHONE_HREF = "tel:+18163084795"
 
 export function Hero({ city }: { city: string }) {
   return (
