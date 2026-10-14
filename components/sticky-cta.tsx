@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react"
 import { useState, useEffect } from "react"
 
-const SMS_NUMBER = "18163084795"
+const SMS_NUMBER = "14174804040"
 const SMS_HREF = `sms:${SMS_NUMBER}?body=Hello,%20I%20need%20appliance%20repair%20services.`
 
 export function StickyCta() {

@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
     areaServed: { "@type": "City", name: "Joplin" },
   }
 
-  const SMS_NUMBER = "+18163084795"
+  const SMS_NUMBER = "+14174804040"
   const SMS_MESSAGE = encodeURIComponent(`Hi, I need help with my ${data.name}. It's urgent.`)
   const SMS_LINK = `sms:${SMS_NUMBER}?body=${SMS_MESSAGE}`
 
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
             </div>
             
             {/* Desktop CTA */}
-            <a href="tel:+18163084795" className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-emerald-500 text-white hover:bg-emerald-400 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] rounded-xl h-14 px-8")}>
+            <a href="tel:+14174804040" className={cn(buttonVariants({ size: "lg" }), "hidden md:flex w-full md:w-auto bg-emerald-500 text-white hover:bg-emerald-400 hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] rounded-xl h-14 px-8")}>
               <Phone className="mr-2 h-5 w-5" /> 
               Call Now for {data.name} Repair
             </a>
@@ -267,9 +267,9 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
               </span>
               Dispatching now in Joplin Area
             </p>
-            <a href="tel:+18163084795" className="w-full flex items-center justify-center bg-emerald-500 active:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform transform active:scale-[0.98]">
+            <a href="tel:+14174804040" className="w-full flex items-center justify-center bg-emerald-500 active:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-lg shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-transform transform active:scale-[0.98]">
               <Phone className="mr-2 h-5 w-5" />
-              Call +1 (816) 308-4795
+              Call +1 (417) 480-4040
             </a>
           </div>
         </div>
@@ -532,7 +532,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
           
           <div className="text-center mt-10">
              <p className="text-sm font-semibold text-blue-700">
-               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <a href="tel:+18163084795" className="font-semibold text-[#25D366] hover:underline">Call to confirm →</a></span>
+               Don&apos;t see your brand? <span className="font-normal text-slate-600">We service 50+ makes & models. <a href="tel:+14174804040" className="font-semibold text-[#25D366] hover:underline">Call to confirm →</a></span>
              </p>
           </div>
         </section>
@@ -630,7 +630,7 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   <h3 className="font-bold text-slate-900 text-xl">Still need help?</h3>
                   <p className="mt-2 text-slate-600 mb-8">Our master technicians are ready to answer your specific {data.name.toLowerCase()} questions instantly.</p>
                   <Link 
-                    href={`https://wa.me/18163084795?text=Hello,%20I%20have%20a%20question%20about%20my%20${data.name}.`} 
+                    href={`https://wa.me/14174804040?text=Hello,%20I%20have%20a%20question%20about%20my%20${data.name}.`} 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-[#25D366] px-4 py-4 text-base font-bold text-white transition-all hover:bg-[#20b858] hover:shadow-lg hover:-translate-y-1"
@@ -716,8 +716,8 @@ export default async function ServicePage({ params }: { params: Promise<{ applia
                   
                   <div className="flex items-center gap-2 text-slate-400">
                     <span>Or call us directly:</span>
-                    <a href="tel:+18163084795" className="text-white font-bold hover:text-blue-400 transition-colors">
-                      +1 (816) 308-4795
+                    <a href="tel:+14174804040" className="text-white font-bold hover:text-blue-400 transition-colors">
+                      +1 (417) 480-4040
                     </a>
                   </div>
                 </div>

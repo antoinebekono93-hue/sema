@@ -1,7 +1,7 @@
 import { Phone, MapPin, Clock, Wrench } from "lucide-react"
-const PHONE = "+1 (816) 308-4795"
+const PHONE = "+1 (417) 480-4040"
 
-const PHONE_HREF = "tel:+18163084795"
+const PHONE_HREF = "tel:+14174804040"
 
 export function ServiceAreaMap() {
   return (
