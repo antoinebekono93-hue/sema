@@ -47,13 +47,11 @@ const areasMo = [
   "Wentworth",
   "Wheaton",
 ]
-const areasKsOk = ["Galena", "Baxter Springs", "Columbus", "Pittsburg", "Frontenac", "Girard", "Riverton", "Quapaw"]
-
 export function SiteFooter() {
   return (
     <footer id="areas" className="bg-navy text-navy-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-foreground/10">
@@ -80,17 +78,6 @@ export function SiteFooter() {
             </h3>
             <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2 text-sm text-navy-foreground/80">
               {areasMo.map((area) => (
-                <li key={area}>{area}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-navy-foreground/60">
-              Service Areas — Kansas &amp; Oklahoma
-            </h3>
-            <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-navy-foreground/80">
-              {areasKsOk.map((area) => (
                 <li key={area}>{area}</li>
               ))}
             </ul>
