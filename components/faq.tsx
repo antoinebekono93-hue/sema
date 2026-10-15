@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Minus, MessageCircle } from "lucide-react"
+import { Plus, Minus, Calendar } from "lucide-react"
 
 const faqs = [
   {
     q: "How quickly can you come out for a repair?",
-    a: "We prioritize urgent calls and offer same-day or next-day service across the Joplin area. When you contact us via WhatsApp, we can often give you an immediate ETA.",
+    a: "We prioritize urgent calls and offer same-day or next-day service across the Joplin area. When you contact us, we can often give you an immediate ETA.",
   },
   {
     q: "How much is the service call fee?",
@@ -74,13 +74,11 @@ export function Faq() {
               <h3 className="font-bold text-slate-900 text-xl">Still need help?</h3>
               <p className="mt-2 text-slate-600 mb-8">Our master technicians are ready to answer your specific questions instantly.</p>
               <a 
-                href="https://wa.me/14174804040?text=Hello,%20I%20have%20a%20question%20about%20an%20appliance%20repair." 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-[#25D366] px-4 py-4 text-base font-bold text-white transition-all hover:bg-[#20b858] hover:shadow-lg hover:-translate-y-1"
+                href="#booking" 
+                className="inline-flex items-center justify-center gap-3 w-full rounded-xl bg-cta px-4 py-4 text-base font-bold text-white transition-all hover:brightness-95 hover:shadow-lg hover:-translate-y-1"
               >
-                <MessageCircle className="h-6 w-6" />
-                Chat on WhatsApp
+                <Calendar className="h-6 w-6" />
+                Book Now
               </a>
             </div>
           </div>
