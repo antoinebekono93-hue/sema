@@ -14,7 +14,7 @@ import {
   AlertTriangle, ChevronRight, ArrowRight, Zap, BadgeCheck,
   Thermometer, Droplets, Snowflake, Volume2, Flame, RotateCw,
   Lock, AlertCircle, GlassWater, BoxIcon, MessageCircle,
-  Plus, Minus
+  Plus, Minus, Calendar
 } from "lucide-react"
 
 // Icon mapping for symptoms
